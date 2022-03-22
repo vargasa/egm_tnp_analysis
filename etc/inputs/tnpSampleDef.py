@@ -86,13 +86,13 @@ ReReco2018 = {
 
 
 UL2017 = {
-    'DY_NLO' : tnpSample('DY_NLO', customUL + 'UL2017_DYToLL_NLO.root ', isMC = True, nEvts =  -1 ),
-    'DY_LO' : tnpSample('DY_NLO', customUL + 'UL2017_DYToLL_LO.root', isMC = True, nEvts =  -1 ),
-    'data_Run2017B' : tnpSample('data_Run2017B' , customUL + 'SingleEle_RunB.root' , lumi = 4.793961427),
-    'data_Run2017C' : tnpSample('data_Run2017C' , customUL + 'SingleEle_RunC.root' , lumi = 9.631214821 ),
-    'data_Run2017D' : tnpSample('data_Run2017D' , customUL + 'SingleEle_RunD.root' , lumi = 4.247682053 ),
-    'data_Run2017E' : tnpSample('data_Run2017E' , customUL + 'SingleEle_RunE.root' , lumi = 9.313642402 ),
-    'data_Run2017F' : tnpSample('data_Run2017F' , customUL + 'SingleEle_RunF.root' , lumi = 13.510934811),
+    'DYToLL_NLO' : tnpSample('DYToLL_NLO', customUL + 'UL2017_DYToLL_NLO.root ', isMC = True, nEvts =  -1 ),
+    'DYToLL_LO' : tnpSample('DYToLL_LO', customUL + 'UL2017_DYToLL_LO.root', isMC = True, nEvts =  -1 ),
+    'data_Run2017B' : tnpSample('data_Run2017B' , customUL + 'UL2017_SERun2017B.root' , lumi = 4.793961427),
+    'data_Run2017C' : tnpSample('data_Run2017C' , customUL + 'UL2017_SERun2017C.root' , lumi = 9.631214821 ),
+    'data_Run2017D' : tnpSample('data_Run2017D' , customUL + 'UL2017_SERun2017D.root' , lumi = 4.247682053 ),
+    'data_Run2017E' : tnpSample('data_Run2017E' , customUL + 'UL2017_SERun2017E.root' , lumi = 9.313642402 ),
+    'data_Run2017F' : tnpSample('data_Run2017F' , customUL + 'UL2017_SERun2017F.root' , lumi = 13.510934811),
     }
 
 UL2018 = {
@@ -108,18 +108,18 @@ UL2018 = {
 UL2016_preVFP = {
     'DYToLL_NLO' : tnpSample('DYToLL_NLO', customUL + 'UL2016preVFP_DYToLL_NLO.root',isMC = True, nEvts =  -1 ),
     'DYToLL_LO'  : tnpSample('DYToLL_LO', customUL + 'UL2016preVFP_DYToLL_LO.root',isMC = True, nEvts =  -1 ),
-    'data_Run2016B' : tnpSample('data_Run2016B' , customUL + 'UL2016_SingleEle_Run2016B.root' , lumi = 0.030493962),
-    'data_Run2016B_ver2' : tnpSample('data_Run2016B_ver2' , customUL + 'UL2016_SingleEle_Run2016B_ver2.root' , lumi = 5.879330594),
-    'data_Run2016C' : tnpSample('data_Run2016C' , customUL + 'UL2016_SingleEle_Run2016C.root' , lumi = 2.64992914),
-    'data_Run2016D' : tnpSample('data_Run2016D' , customUL + 'UL2016_SingleEle_Run2016D.root' , lumi = 4.292865604),
-    'data_Run2016E' : tnpSample('data_Run2016E' , customUL + 'UL2016_SingleEle_Run2016E.root' , lumi = 4.185165152),
-    'data_Run2016F' : tnpSample('data_Run2016F' , customUL + 'UL2016_SingleEle_Run2016F.root' , lumi = 2.725508364),
+#    'data_Run2016B' : tnpSample('data_Run2016B' , customUL + 'UL2016_SERun2016B.root' , lumi = 0.030493962),
+    'data_Run2016B' : tnpSample('data_Run2016B' , customUL + 'UL2016preVFP_SERun2016Bv2.root' , lumi = 5.879330594),
+    'data_Run2016C' : tnpSample('data_Run2016C' , customUL + 'UL2016preVFP_SERun2016CHIPM.root' , lumi = 2.64992914),
+    'data_Run2016D' : tnpSample('data_Run2016D' , customUL + 'UL2016preVFP_SERun2016DHIPM.root' , lumi = 4.292865604),
+    'data_Run2016E' : tnpSample('data_Run2016E' , customUL + 'UL2016preVFP_SERun2016EHIPM.root' , lumi = 4.185165152),
+    'data_Run2016F' : tnpSample('data_Run2016F' , customUL + 'UL2016preVFP_SERun2016FHIPM.root' , lumi = 2.725508364),
     }
 
 UL2016_postVFP = {
     'DYToLL_NLO' : tnpSample('DYToLL_NLO', customUL + 'UL2016postVFP_DYToLL_NLO.root', isMC = True, nEvts =  -1 ),
     'DYToLL_LO' : tnpSample('DYToLL_LO', customUL + 'UL2016postVFP_DYToLL_LO.root', isMC = True, nEvts =  -1 ),
-    'data_Run2016F_postVFP' : tnpSample('data_Run2016F_postVFP' , customUL + 'UL2016_SingleEle_Run2016F_postVFP.root' , lumi = 0.414987426),
-    'data_Run2016G' : tnpSample('data_Run2016G' , customUL + 'UL2016_SingleEle_Run2016G.root' , lumi = 7.634508755),
-    'data_Run2016H' : tnpSample('data_Run2016H' , customUL + 'UL2016_SingleEle_Run2016H.root' , lumi = 8.802242522),
+    'data_Run2016F_postVFP' : tnpSample('data_Run2016F_postVFP' , customUL + 'UL2016postVFP_SERun2016F.root' , lumi = 0.414987426),
+    'data_Run2016G' : tnpSample('data_Run2016G' , customUL + 'UL2016postVFP_SERun2016G.root' , lumi = 7.634508755),
+    'data_Run2016H' : tnpSample('data_Run2016H' , customUL + 'UL2016postVFP_SERun2016H.root' , lumi = 8.802242522),
     }

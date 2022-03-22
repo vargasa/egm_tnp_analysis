@@ -2,25 +2,11 @@
 ########## General settings
 #############################################################
 # flag to be Tested
-cutpass80 = '(( abs(probe_sc_eta) < 0.8 && probe_Ele_nonTrigMVA > %f ) ||  ( abs(probe_sc_eta) > 0.8 && abs(probe_sc_eta) < 1.479&& probe_Ele_nonTrigMVA > %f ) || ( abs(probe_sc_eta) > 1.479 && probe_Ele_nonTrigMVA > %f ) )' % (0.967083,0.929117,0.726311)
-cutpass90 = '(( abs(probe_sc_eta) < 0.8 && probe_Ele_nonTrigMVA > %f ) ||  ( abs(probe_sc_eta) > 0.8 && abs(probe_sc_eta) < 1.479&& probe_Ele_nonTrigMVA > %f ) || ( abs(probe_sc_eta) > 1.479 && probe_Ele_nonTrigMVA > %f ) )' % (0.913286,0.805013,0.358969)
-
-# flag to be Tested
 flags = {
-    'passingVeto94XV2'    : '(passingVeto94XV2   == 1)',
-    'passingLoose94XV2'   : '(passingLoose94XV2  == 1)',
-    'passingMedium94XV2'  : '(passingMedium94XV2 == 1)',
-    'passingTight94XV2'   : '(passingTight94XV2  == 1)',
-    'passingMVA94Xwp80isoV2' : '(passingMVA94Xwp80isoV2 == 1)',
-    'passingMVA94Xwp90isoV2' : '(passingMVA94Xwp90isoV2 == 1)',
-    'passingMVA94Xwp80noisoV2' : '(passingMVA94Xwp80noisoV2 == 1)',
-    'passingMVA94Xwp90noisoV2' : '(passingMVA94Xwp90noisoV2 == 1)',
-    'passingMVA94XwpLisoV2'    : '(passingMVA94XwpLisoV2 == 1)',
-    'passingMVA94XwpLnoisoV2'  : '(passingMVA94XwpLnoisoV2 == 1)',
-    'passingMVA94XwpHZZisoV2'  : '(passingMVA94XwpHZZisoV2 == 1)',
-    }
+    'trigger' : '(passhltEle27WPTightGsfTrackIsoFilter||passhltEG175HEFilter)&&(passingCutBasedLoose94XV2)',
+}
 
-baseOutDir = 'results/UL2016_postVFP/tnpEleID/'
+baseOutDir = 'results/UL2016_postVFP/tnpEleTrig/'
 
 #############################################################
 ########## samples definition  - preparing the samples
@@ -28,13 +14,13 @@ baseOutDir = 'results/UL2016_postVFP/tnpEleID/'
 ### samples are defined in etc/inputs/tnpSampleDef.py
 ### not: you can setup another sampleDef File in inputs
 import etc.inputs.tnpSampleDef as tnpSamples
-tnpTreeDir = 'tnpEleIDs'
+tnpTreeDir = 'tnpEleTrig'
 
 samplesDef = {
     'data'   : tnpSamples.UL2016_postVFP['data_Run2016F_postVFP'].clone(),
-    'mcNom'  : tnpSamples.UL2016_postVFP['DY_madgraph'].clone(),
-    'mcAlt'  : tnpSamples.UL2016_postVFP['DY_amcatnloext'].clone(),
-    'tagSel' : tnpSamples.UL2016_postVFP['DY_madgraph'].clone(),
+    'mcNom'  : tnpSamples.UL2016_postVFP['DYToLL_LO'].clone(),
+    'mcAlt'  : tnpSamples.UL2016_postVFP['DYToLL_NLO'].clone(),
+    'tagSel' : tnpSamples.UL2016_postVFP['DYToLL_LO'].clone(),
 }
 
 ## can add data sample easily
@@ -79,11 +65,8 @@ if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/s
 ########## bining definition  [can be nD bining]
 #############################################################
 biningDef = [
-   { 'var' : 'el_sc_eta' , 'type': 'float', 'bins': [-2.5,-2.0,-1.566,-1.4442, -0.8, 0.0, 0.8, 1.4442, 1.566, 2.0, 2.5] },
-#   { 'var' : 'el_pt' , 'type': 'float', 'bins': [10,20,35,50,100,500] },
-   { 'var' : 'el_pt' , 'type': 'float', 'bins': [10,20,35,50,100,200,500] },
-
-
+    { 'var' : 'el_sc_eta' , 'type': 'float', 'bins': [-2.5,-2.0,-1.566,-1.4442, -0.8, 0.0, 0.8, 1.4442, 1.566, 2.0, 2.5] },
+    { 'var' : 'el_pt' , 'type': 'float', 'bins': [27,50,80,110,150,200,500] },
 ]
 
 #############################################################
@@ -91,32 +74,7 @@ biningDef = [
 #############################################################
 ### cut
 cutBase   = 'tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
-
-# can add addtionnal cuts for some bins (first check bin number using tnpEGM --checkBins)
-#LS: we removed the met cuts cause JEC not ready for UL2016
-#additionalCuts = { 
-#    0 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    1 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    2 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    3 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    4 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    5 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    6 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    7 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    8 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45',
-#    9 : 'tag_Ele_trigMVA > 0.92 && sqrt( 2*event_met_pfmet*tag_Ele_pt*(1-cos(event_met_pfphi-tag_Ele_phi))) < 45'
-#}
 additionalCuts = { 
-    0 : 'tag_Ele_trigMVA > 0.92 ',
-    1 : 'tag_Ele_trigMVA > 0.92 ',
-    2 : 'tag_Ele_trigMVA > 0.92 ',
-    3 : 'tag_Ele_trigMVA > 0.92 ',
-    4 : 'tag_Ele_trigMVA > 0.92 ',
-    5 : 'tag_Ele_trigMVA > 0.92 ',
-    6 : 'tag_Ele_trigMVA > 0.92 ',
-    7 : 'tag_Ele_trigMVA > 0.92 ',
-    8 : 'tag_Ele_trigMVA > 0.92 ',
-    9 : 'tag_Ele_trigMVA > 0.92 '
 }
 
 #### or remove any additional cut (default)

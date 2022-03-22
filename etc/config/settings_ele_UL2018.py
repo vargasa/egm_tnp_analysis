@@ -4,7 +4,7 @@
 
 # flag to be Tested
 flags = {
-    'trigger' : '(passhltEG175HEFilter||passhltEle32WPTightGsfTrackIsoFilter)',
+    'trigger' : '(passhltEG175HEFilter||passhltEle32WPTightGsfTrackIsoFilter)&&(passingCutBasedLoose94XV2)',
 }
 
 baseOutDir = 'results/UL2018/tnpHLT/'
@@ -67,7 +67,7 @@ if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/s
 #############################################################
 biningDef = [
     { 'var' : 'el_sc_eta' , 'type': 'float', 'bins': [-2.5,-2.0,-1.566,-1.4442, -0.8, 0.0, 0.8, 1.4442, 1.566, 2.0, 2.5] },
-    { 'var' : 'el_pt' , 'type': 'float', 'bins': [10,20,35,50,100,200,500,1000] },
+    { 'var' : 'el_pt' , 'type': 'float', 'bins': [32,50,80,110,150,200,500] },
 ]
 
 #############################################################
@@ -79,7 +79,7 @@ cutBase   = 'tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
 # can add addtionnal cuts for some bins (first check bin number using tnpEGM --checkBins)
 #LS: we removed the met cuts cause JEC not ready for UL2018
 additionalCuts = {
-    0 : 'tag_Ele_trigMVA > 0.92 ',
+#    0 : 'tag_Ele_trigMVA > 0.92 ',
 }
 
 #### or remove any additional cut (default)
