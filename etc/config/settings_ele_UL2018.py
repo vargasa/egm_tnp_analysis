@@ -4,7 +4,7 @@
 
 # flag to be Tested
 flags = {
-    'trigger' : '(passhltEG175HEFilter||passhltEle32WPTightGsfTrackIsoFilter)&&(passingCutBasedLoose94XV2)',
+    'trigger' : '(passhltEG175HEFilter||passhltEle32WPTightGsfTrackIsoFilter)',
 }
 
 baseOutDir = 'results/UL2018/tnpHLT/'
@@ -74,7 +74,7 @@ biningDef = [
 ########## Cuts definition for all samples
 #############################################################
 ### cut
-cutBase   = 'tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
+cutBase   = '(passingCutBasedLoose94XV2) && tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
 
 # can add addtionnal cuts for some bins (first check bin number using tnpEGM --checkBins)
 #LS: we removed the met cuts cause JEC not ready for UL2018

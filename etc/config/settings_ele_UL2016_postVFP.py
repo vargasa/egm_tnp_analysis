@@ -3,7 +3,7 @@
 #############################################################
 # flag to be Tested
 flags = {
-    'trigger' : '(passhltEle27WPTightGsfTrackIsoFilter||passhltEG175HEFilter)&&(passingCutBasedLoose94XV2)',
+    'trigger' : '(passhltEle27WPTightGsfTrackIsoFilter||passhltEG175HEFilter)',
 }
 
 baseOutDir = 'results/UL2016_postVFP/tnpEleTrig/'
@@ -73,8 +73,8 @@ biningDef = [
 ########## Cuts definition for all samples
 #############################################################
 ### cut
-cutBase   = 'tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
-additionalCuts = { 
+cutBase   = '(passingCutBasedLoose94XV2) && tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
+additionalCuts = {
 }
 
 #### or remove any additional cut (default)
