@@ -109,7 +109,7 @@ UL2016_preVFP = {
     'DYToLL_NLO' : tnpSample('DYToLL_NLO', customUL + 'UL2016preVFP_DYToLL_NLO.root',isMC = True, nEvts =  -1 ),
     'DYToLL_LO'  : tnpSample('DYToLL_LO', customUL + 'UL2016preVFP_DYToLL_LO.root',isMC = True, nEvts =  -1 ),
 #    'data_Run2016B' : tnpSample('data_Run2016B' , customUL + 'UL2016_SERun2016B.root' , lumi = 0.030493962),
-    'data_Run2016B' : tnpSample('data_Run2016B' , customUL + 'UL2016preVFP_SERun2016Bv2.root' , lumi = 5.879330594),
+    'data_Run2016B' : tnpSample('data_Run2016B' , customUL + 'UL2016preVFP_SERun2016BHIPMv2.root' , lumi = 5.879330594),
     'data_Run2016C' : tnpSample('data_Run2016C' , customUL + 'UL2016preVFP_SERun2016CHIPM.root' , lumi = 2.64992914),
     'data_Run2016D' : tnpSample('data_Run2016D' , customUL + 'UL2016preVFP_SERun2016DHIPM.root' , lumi = 4.292865604),
     'data_Run2016E' : tnpSample('data_Run2016E' , customUL + 'UL2016preVFP_SERun2016EHIPM.root' , lumi = 4.185165152),
