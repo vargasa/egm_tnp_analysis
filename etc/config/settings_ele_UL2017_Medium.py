@@ -6,7 +6,7 @@ flags = {
     'trigger' : '(passhltEle35noerWPTightGsfTrackIsoFilter||passhltEG200HEFilter)',
 }
 
-baseOutDir = 'results/UL2017/tnpHLT/'
+baseOutDir = 'results/UL2017/tnpHLT_Medium/'
 
 #############################################################
 ########## samples definition  - preparing the samples
@@ -74,7 +74,7 @@ biningDef = [
 ########## Cuts definition for all samples
 #############################################################
 ### cut
-cutBase   = '(passingCutBasedLoose94XV2) && tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
+cutBase   = '(passingCutBasedMedium94XV2) && tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
 
 additionalCuts = { 
 }
@@ -93,10 +93,10 @@ tnpParNomFit = [
     ]
 
 tnpParAltSigFit = [
-    "meanP[-0.0,-5.0,5.0]","sigmaP[1,0.7,6.0]","alphaP[-1.,-2.5,-0.01]" ,'nP[0.01,0.001,4.]',"sigmaP_2[1.5,0.5,6.0]","sosP[1,0.5,5.0]",
-    "meanF[-0.0,-5.0,5.0]","sigmaF[2,0.7,15.0]","alphaF[-1.,-2.5,-0.01]",'nF[0.01,0.001,4.]',"sigmaF_2[2.0,0.5,6.0]","sosF[1,0.5,5.0]",
-#    "meanP[-0.0,-5.0,5.0]","sigmaP[1,0.7,6.0]","alphaP[2.0,1.2,3.5]" ,'nP[3,-5,5]',"sigmaP_2[1.5,0.5,6.0]","sosP[1,0.5,5.0]",
-#    "meanF[-0.0,-5.0,5.0]","sigmaF[2,0.7,15.0]","alphaF[2.0,1.2,3.5]",'nF[3,-5,5]',"sigmaF_2[2.0,0.5,6.0]","sosF[1,0.5,5.0]",
+#    "meanP[-0.0,-5.0,5.0]","sigmaP[1,0.7,6.0]","alphaP[-1.,-2.5,-0.01]" ,'nP[0.01,0.001,4.]',"sigmaP_2[1.5,0.5,6.0]","sosP[1,0.5,5.0]",
+#    "meanF[-0.0,-5.0,5.0]","sigmaF[2,0.7,15.0]","alphaF[-1.,-2.5,-0.01]",'nF[0.01,0.001,4.]',"sigmaF_2[2.0,0.5,6.0]","sosF[1,0.5,5.0]",
+    "meanP[-0.0,-5.0,5.0]","sigmaP[1,0.7,6.0]","alphaP[2.0,1.2,3.5]" ,'nP[3,-5,5]',"sigmaP_2[1.5,0.5,6.0]","sosP[1,0.5,5.0]",
+    "meanF[-0.0,-5.0,5.0]","sigmaF[2,0.7,15.0]","alphaF[2.0,1.2,3.5]",'nF[3,-5,5]',"sigmaF_2[2.0,0.5,6.0]","sosF[1,0.5,5.0]",
     "acmsP[60.,50.,75.]","betaP[0.04,0.01,0.06]","gammaP[0.1, 0.005, 1]","peakP[90.0]",
     "acmsF[60.,50.,75.]","betaF[0.04,0.01,0.06]","gammaF[0.1, 0.005, 1]","peakF[90.0]",
     ]

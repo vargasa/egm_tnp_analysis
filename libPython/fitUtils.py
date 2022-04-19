@@ -25,21 +25,25 @@ def createWorkspaceForAltSig( sample, tnpBin, tnpWorkspaceParam ):
     ### tricky: use n < 0 for high pT bin (so need to remove param and add it back)
     cbNList = ['tailLeft']
     ptmin = ptMin(tnpBin)        
-    if ptmin >= 35 :
-        for par in cbNList:
-            for ip in range(len(tnpWorkspaceParam)):
-                x=re.compile('%s.*?' % par)
-                listToRM = filter(x.match, tnpWorkspaceParam)
-                for ir in listToRM :
-                    print '**** remove', ir
-                    tnpWorkspaceParam.remove(ir)                    
-            tnpWorkspaceParam.append( 'tailLeft[-1]' )
+    # if ptmin >= 35 :
+    #     for par in cbNList:
+    #         for ip in range(len(tnpWorkspaceParam)):
+    #             x=re.compile('%s.*?' % par)
+    #             listToRM = filter(x.match, tnpWorkspaceParam)
+    #             for ir in listToRM :
+    #                 print '**** remove', ir
+    #                 tnpWorkspaceParam.remove(ir)                    
+    #         tnpWorkspaceParam.append( 'tailLeft[-1]' )
 
     if sample.isMC:
         return tnpWorkspaceParam
 
     
     fileref = sample.mcRef.altSigFit
+
+    print "###########FILE###sample.mcRef.altSigFit (fileref)####\n"
+    print fileref
+    print "########################"
     filemc  = rt.TFile(fileref,'read')
 
     from ROOT import RooFit,RooFitResult

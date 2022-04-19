@@ -6,7 +6,7 @@ flags = {
     'trigger' : '(passhltEle35noerWPTightGsfTrackIsoFilter||passhltEG200HEFilter)',
 }
 
-baseOutDir = 'results/UL2017/tnpHLT/'
+baseOutDir = 'results/UL2017/tnpHLT_Tight/'
 
 #############################################################
 ########## samples definition  - preparing the samples
@@ -74,7 +74,7 @@ biningDef = [
 ########## Cuts definition for all samples
 #############################################################
 ### cut
-cutBase   = '(passingCutBasedLoose94XV2) && tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
+cutBase   = '(passingCutBasedTight94XV2) && tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17 && el_q*tag_Ele_q < 0'
 
 additionalCuts = { 
 }
